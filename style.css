@@ -1,0 +1,144 @@
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@300;400&display=swap');
+
+body {
+    font-family: 'Poppins', sans-serif;
+    /* Gradasi warna bisa diubah sesuai selera */
+    background: linear-gradient(to bottom right, #fbc2eb, #a6c1ee); /* Pink ke biru muda */
+    color: #444;
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    overflow: hidden; /* Cegah scrollbar jika konten terlalu besar */
+}
+
+.container {
+    background-color: rgba(255, 255, 255, 0.95); /* Lebih solid sedikit */
+    padding: 40px 50px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    max-width: 600px; /* Disesuaikan untuk konten lebih simpel */
+    width: 90%; /* Agar responsif */
+    text-align: center;
+    transition: all 0.5s ease-out; /* Transisi halus saat konten berubah */
+}
+
+/* --- Style untuk Pembuka --- */
+#opener {
+    padding: 30px 0;
+}
+
+#opener h1 {
+    font-family: 'Pacifico', cursive;
+    color: #e83e8c; /* Pink */
+    font-size: 2.5em;
+    margin-bottom: 15px;
+}
+
+#opener p {
+    font-size: 1.1em;
+    color: #666;
+    margin-bottom: 35px;
+}
+
+#openButton {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(45deg, #fa709a, #fee140); /* Gradasi tombol */
+    color: white;
+    border: none;
+    padding: 18px 35px;
+    font-size: 1.3em;
+    font-weight: bold;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 5px 20px rgba(250, 112, 154, 0.5);
+    letter-spacing: 1px;
+}
+
+#openButton:hover {
+    transform: scale(1.08) translateY(-2px); /* Efek hover lebih terasa */
+    box-shadow: 0 8px 25px rgba(250, 112, 154, 0.7);
+}
+
+/* --- Menyembunyikan Konten Final Awalnya --- */
+.hidden {
+    display: none;
+}
+
+/* --- Style untuk Konten Final (#finalMessage) --- */
+#finalMessage {
+    padding: 30px 10px; /* Padding disesuaikan */
+    text-align: center;
+    opacity: 0; /* Mulai transparan untuk animasi */
+}
+
+/* Animasi untuk #finalMessage saat muncul */
+#finalMessage.revealed {
+    opacity: 1;
+    animation: finalBoom 1s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+@keyframes finalBoom {
+    0% {
+        opacity: 0;
+        transform: scale(0.7);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Style untuk Placeholder Gambar */
+#specialImage {
+    display: block;
+    max-width: 40%; /* Maksimum 80% lebar container */
+    max-height: 40vh; /* Batasi tinggi gambar agar tidak terlalu dominan */
+    height: auto; /* Jaga rasio aspek */
+    margin: 0 auto 25px auto; /* Posisi tengah, beri jarak bawah */
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    /* Style jika belum ada gambar (placeholder) */
+    border: 3px dashed #fbc2eb; /* Garis putus-putus pink */
+    min-height: 150px; /* Tinggi minimal placeholder */
+    background-color: #fdf6fa; /* Warna latar placeholder */
+    /* Tampilkan teks Alt jika gambar gagal dimuat */
+    color: #aaa;
+    font-style: italic;
+}
+
+/* Style untuk Teks "LOVE YOU" dan Hati */
+.love-text h1 {
+    font-family: 'Pacifico', cursive;
+    font-size: 5em; /* Ukuran disesuaikan */
+    color: #e83e8c;
+    margin: 5px 0;
+    line-height: 1.1;
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.15);
+}
+
+.love-text .heart-icon {
+    font-size: 3em;
+    color: #ff4d4d;
+    margin: 0 10px;
+    display: inline-block;
+    vertical-align: middle; /* Sejajarkan dengan teks */
+    animation: heartBeat 1.2s infinite;
+}
+
+@keyframes heartBeat {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+}
+
+/* Sembunyikan kontrol audio default jika ada */
+audio {
+   /* display: none;  */ /* Uncomment ini jika tidak ingin kontrol terlihat sama sekali */
+   /* Jika ingin tetap ada kontrol tapi kecil: */
+   width: 60%;
+   margin-top: 30px;
+   height: 30px; /* Perkecil tinggi kontrol */
+}
